@@ -1,0 +1,7 @@
+ID,Ime,Priimek,Naslo,ElektronskaPosta,Telefon,MobilniTelefon,Opomba
+"Kontakt{id=1, ime='klara', priimek='kresnik', naslov='adf', elektronskaPosta='', telefon='', mobilniTelefon='', opomba=''}"
+"Kontakt{id=2, ime='', priimek='', naslov='', elektronskaPosta='', telefon='', mobilniTelefon='', opomba=''}"
+"Kontakt{id=3, ime='', priimek='', naslov='', elektronskaPosta='', telefon='', mobilniTelefon='', opomba=''}"
+"Kontakt{id=4, ime='gaja', priimek='kresnik', naslov='', elektronskaPosta='', telefon='', mobilniTelefon='', opomba=''}"
+"Kontakt{id=5, ime='matic', priimek='rotovnik', naslov='', elektronskaPosta='', telefon='', mobilniTelefon='', opomba=''}"
+"Kontakt{id=6, ime='ana', priimek='šertel', naslov='', elektronskaPosta='', telefon='123', mobilniTelefon='', opomba=''}"
