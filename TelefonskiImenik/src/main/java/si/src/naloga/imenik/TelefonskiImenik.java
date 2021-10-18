@@ -49,22 +49,27 @@ public class TelefonskiImenik {
     /**
      * Metoda doda nov kontakt v imenik
      *
-     * onemogočimo dodajanje dupliciranega kontakta
+     * onemogočimo dodajanje dupliciranega kontakta, tako da 
+     * se nova id stevilka vedno sama nastavi
      * @throws IOException 
      */
     public void dodajKontakt() throws IOException {
     	Kontakt nov_kontakt = new Kontakt();
     	nov_kontakt.setId(id);
     	id += 1;
+//    	ime
     	System.out.println("Vnesite ime:");
     	String ime = in.readLine();
-    	if (ime != null) nov_kontakt.setIme(ime);
+    	nov_kontakt.setIme(ime);
+//    	priimek
     	System.out.println("Vnesite priimek:");
     	String priimek = in.readLine();
-    	if (priimek != null) nov_kontakt.setPriimek(priimek);
+    	nov_kontakt.setPriimek(priimek);
+//    	naslov
     	System.out.println("Vnesite naslov:");
     	String naslov = in.readLine();
-    	if (naslov != null) nov_kontakt.setNaslov(naslov);
+    	nov_kontakt.setNaslov(naslov);
+//    	elektronska pošta. Vnos je pravilen, če vsebuje znak '@'
     	System.out.println("Vnesite elektronsko pošto:");
     	String elekPosta = in.readLine();
     	Matcher matcherElekPosta = vzorecZaElektronskoPosto.matcher(elekPosta);
@@ -73,7 +78,8 @@ public class TelefonskiImenik {
     		elekPosta = in.readLine();
         	matcherElekPosta = vzorecZaElektronskoPosto.matcher(elekPosta);
     	}
-    	if (elekPosta != null) nov_kontakt.setElektronskaPosta(elekPosta);
+    	nov_kontakt.setElektronskaPosta(elekPosta);
+//    	telefon. Vnos se lahko začne z znakom '+', slediti morajo številke in na koncu morajo biti številke.
     	System.out.println("Vnesite telefonsko številko:");
     	String telefon = in.readLine();
     	Matcher matcherTelefon = vzorecZaTelefonkoStevilko.matcher(telefon);
@@ -82,7 +88,8 @@ public class TelefonskiImenik {
     		telefon = in.readLine();
     		matcherTelefon = vzorecZaTelefonkoStevilko.matcher(telefon);
     	}
-    	if (telefon != null) nov_kontakt.setTelefon(telefon);
+    	nov_kontakt.setTelefon(telefon);
+//    	mobilni telefon. Vnos se lahko začne z znakom '+', slediti morajo številke in na koncu morajo biti številke.
     	System.out.println("Vnesite številko mobilnega telefona:");
     	String mobilniTelefon = in.readLine();
     	Matcher matcherMobilniTelefon = vzorecZaTelefonkoStevilko.matcher(mobilniTelefon);
@@ -91,12 +98,13 @@ public class TelefonskiImenik {
     		mobilniTelefon = in.readLine();
     		matcherMobilniTelefon = vzorecZaTelefonkoStevilko.matcher(mobilniTelefon);
     	}
-    	if (mobilniTelefon != null) nov_kontakt.setMobilniTelefon(mobilniTelefon);
+    	nov_kontakt.setMobilniTelefon(mobilniTelefon);
+//    	opomba
     	System.out.println("Vnesite opombo:");
     	String opomba = in.readLine();
     	if (opomba != null) nov_kontakt.setOpomba(opomba);
-    	System.out.println("Kontakt je dodan!");
     	seznamKontaktov.add(nov_kontakt);
+    	System.out.println("Kontakt je dodan!");
     }
 
     /**
@@ -114,22 +122,22 @@ public class TelefonskiImenik {
     			izpisiPodatke();
     			String podatek = in.readLine();
     			switch (podatek) {
-	    			case "1":
+	    			case "1": //ime
 	    				System.out.println("Napišite novo ime:");
 	    				String ime = in.readLine();
 	    				kontakt.setIme(ime);
 	    				break;
-	    			case "2":
+	    			case "2": //priimek
 	    				System.out.println("Napišite nov priimek:");
 	    				String priimek = in.readLine();
 	    				kontakt.setPriimek(priimek);
 	    				break;
-	    			case "3":
+	    			case "3": //naslov
 	    				System.out.println("Napišite nov naslov:");
 	    				String naslov = in.readLine();
 	    				kontakt.setNaslov(naslov);
 	    				break;
-	    			case "4":
+	    			case "4": //elektronska posta
 	    				System.out.println("Napišite novo elektronsko pošto:");
 	    				String elektronskaPosta = in.readLine();
 	    				Matcher matcherElekPosta = vzorecZaElektronskoPosto.matcher(elektronskaPosta);
@@ -139,7 +147,7 @@ public class TelefonskiImenik {
 	    		        	matcherElekPosta = vzorecZaElektronskoPosto.matcher(elektronskaPosta);
 	    		    	} if (elektronskaPosta != "") kontakt.setElektronskaPosta(elektronskaPosta);
 	    				break;
-	    			case "5":
+	    			case "5": //telefon. preverimo pravilnost vnosa enako kot pri novem vnosu
 	    				System.out.println("Napišite novo telefonsko številko:");
 	    				String telefon = in.readLine();
 	    				Matcher matcherTelefon = vzorecZaTelefonkoStevilko.matcher(telefon);
@@ -149,7 +157,7 @@ public class TelefonskiImenik {
 	    		    		matcherTelefon = vzorecZaTelefonkoStevilko.matcher(telefon);
 	    		    	} if (telefon != "") kontakt.setTelefon(telefon);
 	    				break;
-	    			case "6":
+	    			case "6": //mobilni telefon. preverimo pravilnost vnosa enako kot pri novem vnosu
 	    				System.out.println("Napišite novo številko mobilnega telefona:");
 	    				String mobilniTelefon = in.readLine();
 	    				Matcher matcherMobilniTelefon = vzorecZaTelefonkoStevilko.matcher(mobilniTelefon);
@@ -159,7 +167,7 @@ public class TelefonskiImenik {
 	    		    		matcherMobilniTelefon = vzorecZaTelefonkoStevilko.matcher(mobilniTelefon);
 	    		    	} if (mobilniTelefon != "") kontakt.setMobilniTelefon(mobilniTelefon);
 	    				break;
-	    			case "7":
+	    			case "7": //opomba
 	    				System.out.println("Napišite novo opombo:");
 	    				String opomba = in.readLine();
 	    				kontakt.setOpomba(opomba);
@@ -223,8 +231,7 @@ public class TelefonskiImenik {
      * @throws IOException
      * @throws ClassNotFoundException
      */
-    public void naloziSerializiranSeznamKontakotv() throws IOException, ClassNotFoundException
-{
+    public void naloziSerializiranSeznamKontakotv() throws IOException, ClassNotFoundException {
     	FileInputStream fis;
 		try {
 			fis = new FileInputStream("kontakti.ser");
@@ -248,9 +255,8 @@ public class TelefonskiImenik {
     	String imeDatoteke = in.readLine();
     	if (imeDatoteke == "") imeDatoteke = "kontakti.csv";
     	BufferedWriter writer = Files.newBufferedWriter(Paths.get(imeDatoteke));
-
         CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT
-                .withHeader("ID", "Ime", "Priimek", "Naslo", "ElektronskaPosta", "Telefon", "MobilniTelefon", "Opomba"));
+                .withHeader("ID", "Ime", "Priimek", "Naslov", "ElektronskaPosta", "Telefon", "MobilniTelefon", "Opomba"));
         for (Kontakt kontakt : seznamKontaktov) {
         	csvPrinter.printRecord(Arrays.asList(kontakt));
         } csvPrinter.flush();

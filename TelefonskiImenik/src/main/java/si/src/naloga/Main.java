@@ -54,7 +54,7 @@ public class Main {
                     break;
                 case "5":
 				try {
-					telefonskiImenik.izbrisiKontaktPoId();
+					telefonskiImenik.izpisiKontaktZaId();
 				} catch (IOException e) {
 					System.out.println("IOException!");
 				}
@@ -106,7 +106,6 @@ public class Main {
                     System.out.println("Napačna izbira!!!");
                     break;
             }
-
             izpisiMenu();
         }
     }
@@ -121,15 +120,15 @@ public class Main {
         System.out.println("Aplikacija telefonski imenik:");
         System.out.println("-----------------------------------");
         System.out.println("Akcije:");
-        System.out.println("1 - izpiši vse kontakte v imeniku");
-        System.out.println("2 - dodaj kontakt v imenik");
-        System.out.println("3 - uredi obstoječi kontakt");
-        System.out.println("4 - briši kontakt po ID-ju");
-        System.out.println("5 - izpiši kontakt po ID-ju");
-        System.out.println("6 - izpiši število vseh kontaktov");
-        System.out.println("7 - Shrani kontakte na disk (serializacija)");
-        System.out.println("8 - Preberi kontake iz serializirane datoteke");
-        System.out.println("9 - Izvozi kontakte v csv");
+        System.out.println(" 1 - izpiši vse kontakte v imeniku");
+        System.out.println(" 2 - dodaj kontakt v imenik");
+        System.out.println(" 3 - uredi obstoječi kontakt");
+        System.out.println(" 4 - briši kontakt po ID-ju");
+        System.out.println(" 5 - izpiši kontakt po ID-ju");
+        System.out.println(" 6 - izpiši število vseh kontaktov");
+        System.out.println(" 7 - Shrani kontakte na disk (serializacija)");
+        System.out.println(" 8 - Preberi kontake iz serializirane datoteke");
+        System.out.println(" 9 - Izvozi kontakte v csv");
         System.out.println("10 - Iskanje kontaktov po imenu");
         System.out.println("11 - Iskanje kontaktov po priimku");
         System.out.println("");
